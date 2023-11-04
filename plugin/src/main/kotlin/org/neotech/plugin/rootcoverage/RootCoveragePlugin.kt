@@ -159,11 +159,6 @@ class RootCoveragePlugin : Plugin<Project> {
             } else {
                 dependsOn("$path:connected${name}AndroidTest")
             }
-        } else {
-            // If this plugin should not run instrumented tests on it's own, at least make sure it runs after those tasks (if they are
-            // selected to run as well).
-            mustRunAfter("$path:allDevices${name}AndroidTest")
-            mustRunAfter("$path:connected${name}AndroidTest")
         }
 
         sourceDirectories.from(variant.sources.java?.all)
